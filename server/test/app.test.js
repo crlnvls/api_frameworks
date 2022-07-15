@@ -30,4 +30,10 @@ describe("API", () => {
       .expect(200)
       .expect({ animal: { id: 5, animal: "penguin", type: "aves" } }, done);
   });
+  it("responds to a unknown animal id with a 404", (done) => {
+    request(api)
+      .get("/animals/16")
+      .expect(404)
+      .expect({ error: "No animal :( " }, done);
+  });
 });

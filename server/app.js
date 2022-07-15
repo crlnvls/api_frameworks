@@ -40,14 +40,14 @@ app.get("/animals/:id", (req, res) => {
   }
 });
 
-app.post("/animals", (req, res) => {
+app.put("/animals", (req, res) => {
   const newAnimals = req.body;
   newAnimals["id"] = data.length + 1;
-  data.push(newAnimal);
+  data.push(newAnimals);
 
   res.status(201).json({
     success: true,
-    animal: newAnimal,
+    animal: newAnimals,
   });
 });
 
