@@ -40,4 +40,15 @@ app.get("/animals/:id", (req, res) => {
   }
 });
 
+app.post("/animals", (req, res) => {
+  const newAnimals = req.body;
+  newAnimals["id"] = data.length + 1;
+  data.push(newAnimal);
+
+  res.status(201).json({
+    success: true,
+    animal: newAnimal,
+  });
+});
+
 module.exports = app;

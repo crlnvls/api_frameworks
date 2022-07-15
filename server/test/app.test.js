@@ -24,4 +24,10 @@ describe("API", () => {
   it("Responds to GET resquest at / animals with a JSON object", (done) => {
     request(api).get("/animals").expect("Content-Type", /json/, done);
   });
+  it("retrieves an animal by id", (done) => {
+    request(api)
+      .get("/animals/5")
+      .expect(200)
+      .expect({ animal: { id: 5, animal: "penguin", type: "aves" } }, done);
+  });
 });
